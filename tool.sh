@@ -115,12 +115,8 @@ bash "/root/mtp.sh"
 
 #NEZHA.SH哪吒面板/探针·下载
 function nezha(){
-wget -O "/root/nezha.sh" "https://raw.githubusercontent.com/BlueSkyXN/nezha/master/script/install.sh" --no-check-certificate -T 30 -t 5 -d
-chmod +x "/root/nezha.sh"
-chmod 777 "/root/nezha.sh"
-blue "你也可以输入 bash /root/nezha.sh 来手动运行"
-blue "下载完成"
-bash "/root/nezha.sh"
+curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh  -o nezha.sh && chmod +x nezha.sh
+sudo ./nezha.sh
 }
 
 #主菜单
