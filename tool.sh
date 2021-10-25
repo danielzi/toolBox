@@ -48,8 +48,6 @@ function start_menu(){
         2 )
            skyBox
 	;;
-           ehco
-	;;
         0 )
             exit 1
         ;;
