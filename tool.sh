@@ -138,13 +138,20 @@ function start_menu(){
 	yellow " ----------------------------------------------- "
 	green " 10. 获取本机IP "
 	green " 11. Netflix 检测 sjlleo版 "
+	green " 12. Lemonbench 综合测试 "
+	green " 13. 三网Speedtest测速 "
+	green " 14. Superbench 综合测试 "
+	
 
    	yellow " ----------------------------------------------- "
-	green " 20. Docker compose 安装 "
+	green " 20. Linux换源脚本·下载 "
+	green " 21. Docker compose 安装 "
+	green " 22. 哪吒面板 "
 	
 	yellow " ----------------------------------------------- "
-	green " 30.BBR一键管理脚本 "
+	green " 30. BBR一键管理脚本 "
 	green " 31. XrayR 后端 "
+	green " 32. MTP&TLS 一键脚本 "
 	
 	yellow " =============================================== "
 	green " 0. 退出脚本"
@@ -160,14 +167,38 @@ function start_menu(){
 	3 )
            skyBoxArm
 	;;
-	4 )
-           xrayR
+	10 )
+           getip
 	;;
-	5 )
+	11 )
            nfVerify
 	;;
-	6 )
+	12 )
+           Lemonbench
+	;;
+	13 )
+           3speed
+	;;
+	14 )
+           superbench
+	;;
+	20 )
+           cssh
+	;;
+	21 )
            dockerCompose
+	;;
+	22 )
+           nezha
+	;;
+	30 )
+           tcpsh
+	;;
+	31 )
+           xrayR
+	;;
+	32 )
+           mtp
 	;;
         0 )
             exit 1
