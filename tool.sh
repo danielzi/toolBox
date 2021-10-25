@@ -30,7 +30,7 @@ function skyBox(){
 function start_menu(){
 	clear
 	red " Daniel.L 常用脚本包 " 
-	green " https://github.com/danielzi/toolBox/edit/main/tool.sh "
+	green " https://github.com/danielzi/toolBox "
 	green " TG频道 https://t.me/Daniel_Liao "
 	
 	yellow " =======工具箱合集============================== "
