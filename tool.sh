@@ -57,12 +57,12 @@ function start_menu(){
 	green " https://github.com/danielzi/toolBox "
 	green " TG频道 https://t.me/Daniel_Liao "
 	
-	yellow " =======工具箱合集============================== "
+	yellow " =======工具箱合集=============================== "
 	green " 1. JCNF 工具箱 "
 	green " 2. SKY-BOX 工具箱 "
 	green " 3. SKY-BOX ARM工具箱 "
 	
-	yellow " =======常用工具============================== "
+	yellow " ----------------------------------------------- "
 	green " 4. XrayR 后端 "
 	green " 5. Netflix 检测 sjlleo版 "
 	green " 6. Docker compose 安装 "
