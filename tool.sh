@@ -26,6 +26,11 @@ function skyBox(){
 	wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh
 }
 
+#SKY-BOX ARM工具箱
+function skyBoxArm(){
+	wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/armbox.sh && chmod +x box.sh && clear && ./box.sh
+}
+
 #主菜单
 function start_menu(){
 	clear
@@ -34,8 +39,9 @@ function start_menu(){
 	green " TG频道 https://t.me/Daniel_Liao "
 	
 	yellow " =======工具箱合集============================== "
-	green " 1. JCNF工具箱 "
-	green " 2. SKY-BOX工具箱"
+	green " 1. JCNF 工具箱 "
+	green " 2. SKY-BOX 工具箱"
+	green " 3. SKY-BOX ARM工具箱"
    
 	yellow " =============================================== "
 	green " 0. 退出脚本"
@@ -47,6 +53,9 @@ function start_menu(){
 	;;
         2 )
            skyBox
+	;;
+	3 )
+           skyBoxArm
 	;;
         0 )
             exit 1
