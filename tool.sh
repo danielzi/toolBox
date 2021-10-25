@@ -31,6 +31,24 @@ function skyBoxArm(){
 	wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/armbox.sh && chmod +x box.sh && clear && ./box.sh
 }
 
+#XrayR 后端
+function xrayR(){
+	apt-get install git -y && git clone https://github.com/XrayR-project/XrayR-release && cd XrayR-release
+}
+
+#Netflix 检测
+function nfVerify(){
+	wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 && chmod +x nf && clear && ./nf
+}
+
+#Docker compose 安装
+function dockerCompose(){
+	curl -fsSL https://get.docker.com | bash -s docker
+	curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+}
+
+
 #主菜单
 function start_menu(){
 	clear
@@ -40,8 +58,13 @@ function start_menu(){
 	
 	yellow " =======工具箱合集============================== "
 	green " 1. JCNF 工具箱 "
-	green " 2. SKY-BOX 工具箱"
-	green " 3. SKY-BOX ARM工具箱"
+	green " 2. SKY-BOX 工具箱 "
+	green " 3. SKY-BOX ARM工具箱 "
+	
+	yellow " =======常用工具============================== "
+	green " 4. XrayR 后端 "
+	green " 5. Netflix 检测 sjlleo版 "
+	green " 6. Docker compose 安装 "
    
 	yellow " =============================================== "
 	green " 0. 退出脚本"
@@ -56,6 +79,15 @@ function start_menu(){
 	;;
 	3 )
            skyBoxArm
+	;;
+	4 )
+           xrayR
+	;;
+	5 )
+           nfVerify
+	;;
+	6 )
+           dockerCompose
 	;;
         0 )
             exit 1
