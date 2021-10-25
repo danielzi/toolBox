@@ -35,7 +35,6 @@ function skyBoxArm(){
 function xrayR(){
 	apt-get install git -y
 	git clone https://github.com/XrayR-project/XrayR-release
-	cd XrayR-release
 }
 
 #Netflix 检测
