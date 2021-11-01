@@ -115,9 +115,29 @@ bash "/root/mtp.sh"
 
 #NEZHA.SH哪吒面板/探针·下载
 function nezha(){
-curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh  -o nezha.sh && chmod +x nezha.sh
-sudo ./nezha.sh
+	curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh  -o nezha.sh && chmod +x nezha.sh
+	sudo ./nezha.sh
 }
+
+#transmission-daemon 3.0
+function transmission(){
+	sudo apt-get install -y software-properties-common
+	sudo add-apt-repository -y ppa:transmissionbt/ppa
+	sudo apt-get -y update
+	sudo apt-get install -y transmission-daemon
+	service transmission-daemon start
+	service transmission-daemon stop
+	sed -i 's/^.*"rpc-whitelist-enabled".*$/    "rpc-whitelist-enabled": false,/g' /etc/transmission-daemon/settings.json
+	sed -i 's/^.*"dht-enabled".*$/    "dht-enabled": false,/g' /etc/transmission-daemon/settings.json
+	sed -i 's/^.*"rpc-username".*$/    "rpc-username": "danielzi",/g' /etc/transmission-daemon/settings.json
+	sed -i 's/^.*"rpc-password".*$/    "rpc-password": "123456",/g' /etc/transmission-daemon/settings.json
+}
+
+function transmissionUI(){
+	wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh
+	bash ./install-tr-control-cn.sh
+}
+
 
 #主菜单
 function start_menu(){
@@ -143,6 +163,8 @@ function start_menu(){
 	green " 20. Linux换源脚本·下载 "
 	green " 21. Docker compose 安装 "
 	green " 22. 哪吒面板 "
+	green " 23. Transmission 3.0 "
+	green " 24. Transmission UI "
 	
 	yellow " ----------------------------------------------- "
 	green " 30. BBR一键管理脚本 "
@@ -186,6 +208,12 @@ function start_menu(){
 	;;
 	22 )
            nezha
+	;;
+	23 )
+           transmission
+	;;
+	24 )
+           transmissionUI
 	;;
 	30 )
            tcpsh
