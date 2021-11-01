@@ -131,6 +131,8 @@ function transmission(){
 	sed -i 's/^.*"dht-enabled".*$/    "dht-enabled": false,/g' /etc/transmission-daemon/settings.json
 	sed -i 's/^.*"rpc-username".*$/    "rpc-username": "danielzi",/g' /etc/transmission-daemon/settings.json
 	sed -i 's/^.*"rpc-password".*$/    "rpc-password": "123456",/g' /etc/transmission-daemon/settings.json
+	sed -i 's/^.*"rpc-bind-address".*$/    "rpc-bind-address": "::",/g' /etc/transmission-daemon/settings.json
+	service transmission-daemon start
 }
 
 function transmissionUI(){
