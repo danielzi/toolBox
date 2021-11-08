@@ -140,6 +140,15 @@ function transmissionUI(){
 	bash ./install-tr-control-cn.sh
 }
 
+function qinglong(){
+	mkdir qinglong
+	cd qinglong
+	# 下载docker-compose.yml文件
+	wget https://raw.githubusercontent.com/whyour/qinglong/develop/docker-compose.yml
+	# 启动
+	docker-compose up -d
+}
+
 
 #主菜单
 function start_menu(){
@@ -167,6 +176,7 @@ function start_menu(){
 	green " 22. 哪吒面板 "
 	green " 23. Transmission 3.0 "
 	green " 24. Transmission UI "
+	green " 25. 青龙面板 "
 	
 	yellow " ----------------------------------------------- "
 	green " 30. BBR一键管理脚本 "
@@ -216,6 +226,9 @@ function start_menu(){
 	;;
 	24 )
            transmissionUI
+	;;
+	25 )
+           qinglong
 	;;
 	30 )
            tcpsh
