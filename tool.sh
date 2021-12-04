@@ -149,6 +149,11 @@ function qinglong(){
 	docker-compose up -d
 }
 
+function ipv6dns(){
+	echo -e "nameserver 2001:67c:2b0::4\nnameserver 2001:67c:2b0::6" > /etc/resolv.conf
+}
+
+
 
 #主菜单
 function start_menu(){
@@ -168,6 +173,7 @@ function start_menu(){
 	green " 12. Lemonbench 综合测试 "
 	green " 13. 三网Speedtest测速 "
 	green " 14. Superbench 综合测试 "
+	green " 15. 添加IPV6 DNS "
 	
 
    	yellow " ----------------------------------------------- "
@@ -211,6 +217,9 @@ function start_menu(){
 	;;
 	14 )
            superbench
+	;;
+	15 )
+           ipv6dns
 	;;
 	20 )
            cssh
