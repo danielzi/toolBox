@@ -120,7 +120,7 @@ function nezha(){
 }
 
 #transmission-daemon 3.0
-function transmission(){
+function transmissionV6(){
 	sudo apt-get install -y software-properties-common
 	sudo add-apt-repository -y ppa:transmissionbt/ppa
 	sudo apt-get -y update
@@ -132,6 +132,20 @@ function transmission(){
 	sed -i 's/^.*"rpc-username".*$/    "rpc-username": "danielzi",/g' /etc/transmission-daemon/settings.json
 	sed -i 's/^.*"rpc-password".*$/    "rpc-password": "123456",/g' /etc/transmission-daemon/settings.json
 	sed -i 's/^.*"rpc-bind-address".*$/    "rpc-bind-address": "::",/g' /etc/transmission-daemon/settings.json
+	service transmission-daemon start
+}
+
+function transmissionV4(){
+	sudo apt-get install -y software-properties-common
+	sudo add-apt-repository -y ppa:transmissionbt/ppa
+	sudo apt-get -y update
+	sudo apt-get install -y transmission-daemon
+	service transmission-daemon start
+	service transmission-daemon stop
+	sed -i 's/^.*"rpc-whitelist-enabled".*$/    "rpc-whitelist-enabled": false,/g' /etc/transmission-daemon/settings.json
+	sed -i 's/^.*"dht-enabled".*$/    "dht-enabled": false,/g' /etc/transmission-daemon/settings.json
+	sed -i 's/^.*"rpc-username".*$/    "rpc-username": "danielzi",/g' /etc/transmission-daemon/settings.json
+	sed -i 's/^.*"rpc-password".*$/    "rpc-password": "123456",/g' /etc/transmission-daemon/settings.json
 	service transmission-daemon start
 }
 
@@ -180,9 +194,10 @@ function start_menu(){
 	green " 20. Linux换源脚本·下载 "
 	green " 21. Docker compose 安装 "
 	green " 22. 哪吒面板 "
-	green " 23. Transmission 3.0 "
-	green " 24. Transmission UI "
-	green " 25. 青龙面板 "
+	green " 23. Transmission IPV6 "
+	green " 24. Transmission IPV4 "
+	green " 25. Transmission UI "
+	green " 26. 青龙面板 "
 	
 	yellow " ----------------------------------------------- "
 	green " 30. BBR一键管理脚本 "
@@ -231,12 +246,15 @@ function start_menu(){
            nezha
 	;;
 	23 )
-           transmission
+           transmissionV6
 	;;
 	24 )
-           transmissionUI
+           transmissionV4
 	;;
 	25 )
+           transmissionUI
+	;;
+	26 )
            qinglong
 	;;
 	30 )
