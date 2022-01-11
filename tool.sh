@@ -189,7 +189,7 @@ function qbittorrent(){
 #主菜单
 function start_menu(){
 	clear
-	red " Daniel.L 常用脚本包 " 
+	red " Daniel.L 常用脚本包 1.0" 
 	green " https://github.com/danielzi/toolBox "
 	green " TG频道 https://t.me/Daniel_Liao "
 	
