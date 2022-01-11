@@ -272,10 +272,10 @@ function start_menu(){
            transmissionUI
 	;;
 	26 )
-           qbittorrent
+           qinglong
 	;;
 	27 )
-           qinglong
+           qbittorrent
 	;;
 	30 )
            tcpsh
