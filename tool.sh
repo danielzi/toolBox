@@ -171,8 +171,7 @@ function qbittorrent(){
 	sudo apt-get install software-properties-common -y
 	sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 	sudo apt-get update && sudo apt-get install qbittorrent-nox -y
-	
-	sudo apt-get install vim -y && vim /etc/systemd/system/qbittorrent-nox.service
+
 	sed-i 'Description=qBittorrent-nox'  /etc/systemd/system/qbittorrent-nox.service
 	sed-i 'After=network.target'  /etc/systemd/system/qbittorrent-nox.service
 	sed-i 'User=root'  /etc/systemd/system/qbittorrent-nox.service
