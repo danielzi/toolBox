@@ -167,7 +167,24 @@ function ipv6dns(){
 	echo -e "nameserver 2001:67c:2b0::4\nnameserver 2001:67c:2b0::6" > /etc/resolv.conf
 }
 
-
+function qbittorrent(){
+	sudo apt-get install software-properties-common -y
+	sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+	sudo apt-get update && sudo apt-get install qbittorrent-nox -y
+	
+	sudo apt-get install vim -y && vim /etc/systemd/system/qbittorrent-nox.service
+	sed-i 'Description=qBittorrent-nox'  /etc/systemd/system/qbittorrent-nox.service
+	sed-i 'After=network.target'  /etc/systemd/system/qbittorrent-nox.service
+	sed-i 'User=root'  /etc/systemd/system/qbittorrent-nox.service
+	sed-i 'Type=forking'  /etc/systemd/system/qbittorrent-nox.service
+	sed-i 'RemainAfterExit=yes'  /etc/systemd/system/qbittorrent-nox.service
+	sed-i 'ExecStart=/usr/bin/qbittorrent-nox -d'  /etc/systemd/system/qbittorrent-nox.service
+	sed-i 'WantedBy=multi-user.target'  /etc/systemd/system/qbittorrent-nox.service
+	
+	sudo systemctl daemon-reload
+	sudo systemctl start qbittorrent-nox
+	sudo systemctl enable qbittorrent-nox
+}
 
 #主菜单
 function start_menu(){
@@ -198,7 +215,7 @@ function start_menu(){
 	green " 24. Transmission IPV4 "
 	green " 25. Transmission UI "
 	green " 26. 青龙面板 "
-	
+	green " 27. Qbittorrent "
 	yellow " ----------------------------------------------- "
 	green " 30. BBR一键管理脚本 "
 	green " 31. XrayR 后端 "
@@ -255,6 +272,9 @@ function start_menu(){
            transmissionUI
 	;;
 	26 )
+           qbittorrent
+	;;
+	27 )
            qinglong
 	;;
 	30 )
