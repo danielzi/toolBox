@@ -164,7 +164,7 @@ function qinglong(){
 }
 
 function ipv6dns(){
-	echo -e "nameserver 2001:67c:2b0::4\nnameserver 2001:67c:2b0::6" > /etc/resolv.conf
+	echo -e "nameserver 2400:3200::1\nnameserver 2400:da00::6666" > /etc/resolv.conf
 }
 
 function qbittorrent(){
