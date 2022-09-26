@@ -3,7 +3,7 @@ services:
   jellyfin:
     image: nyanmisaka/jellyfin:latest     #jellyfin/jellyfin
     container_name: jellyfin
-    user: 1000:1000
+    user: 0:0
     group_add:
       - 103   # /etc/group 查看 render:x:122           
     network_mode: "host"
